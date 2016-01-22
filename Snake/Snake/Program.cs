@@ -12,19 +12,24 @@ namespace Snake
         {
             Console.SetBufferSize(80, 25);
 
-            Point p1 = new Point(1,3,'*');
-            p1.Drow();
+            VerticalLine vert_line_left = new VerticalLine(24, 0, 79, '%');
+            vert_line_left.Drow();
 
-            Point p2 = new Point(4,5,'#');
-            p2.Drow();
+            VerticalLine vert_line_right = new VerticalLine(24, 0, 0, '%');
+            vert_line_right.Drow();
 
-            HorizontalLine hor_line = new HorizontalLine(2, 6, 8, '%');
-            hor_line.Drow();
+            HorizontalLine hor_line_bottom = new HorizontalLine(0, 78, 24, '%');
+            hor_line_bottom.Drow();
 
-            VerticalLine vert_line = new VerticalLine(20, 4, 10, '^');
-            vert_line.Drow();
+            HorizontalLine hor_line_top = new HorizontalLine(0, 78, 0, '%');
+            hor_line_top.Drow();
 
-            Console.ReadLine();
+            Point start = new Point(15, 5, '*');
+            Snake snake = new Snake(start, 8, Direction.RIGHT);
+            Snake nextsnake = new Snake(new Point(23,5,'*'), 8, Direction.BOTTOM);
+            snake.Drow();
+            nextsnake.Drow();
+            Console.Read();
         }
     }
 }
