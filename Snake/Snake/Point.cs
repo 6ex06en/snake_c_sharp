@@ -53,5 +53,11 @@ namespace Snake
             }
 
         }
+
+        internal void Clear()
+        {
+            sym = ' ';
+            Drow();
+        }
     }
 }
