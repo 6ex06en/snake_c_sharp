@@ -10,6 +10,7 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+            Console.SetBufferSize(80, 25);
 
             Point p1 = new Point(1,3,'*');
             p1.Drow();
