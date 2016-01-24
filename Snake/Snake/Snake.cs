@@ -24,7 +24,7 @@ namespace Snake
 
         public void Move()
         {
-            Point head = GetNextPoint(points.Last());
+            Point head = GetNextPoint();
             points.Add(head);
             Point tail = points.First();
             points.Remove(tail);
@@ -33,9 +33,9 @@ namespace Snake
             tail.Clear();
         }
 
-        public Point GetNextPoint(Point p)
+        public Point GetNextPoint()
         {
-            Point newpoint = new Point(p);
+            Point newpoint = new Point(points.Last());
             newpoint.Move(1, direction);
             return newpoint;
         }
@@ -50,6 +50,20 @@ namespace Snake
                 direction = Direction.RIGHT;
             else if (key.Key == ConsoleKey.DownArrow)
                 direction = Direction.BOTTOM;
+        }
+
+        public bool Eat(Point eats_point)
+        {
+            Point next_point = GetNextPoint();
+            if (next_point.isHit(eats_point))
+            {
+                eats_point.sym = next_point.sym;
+                eats_point.Drow();
+                points.Add(eats_point);
+                return true;
+            }
+            else return false;
+
         }
     }
 }

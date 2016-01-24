@@ -59,5 +59,11 @@ namespace Snake
             sym = ' ';
             Drow();
         }
+
+        internal Boolean isHit(Point p)
+        {
+            if (x == p.x && y == p.y) return true;
+            else return false; 
+        }
     }
 }
