@@ -25,6 +25,7 @@ namespace Snake
             y = p.y;
             sym = p.sym;
         }
+
         public void Drow()
         {
             Console.SetCursorPosition(x, y);

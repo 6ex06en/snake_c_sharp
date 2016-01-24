@@ -8,11 +8,11 @@ namespace Snake
 {
     class VerticalLine : Figure
     {
-        public VerticalLine(int _bottomY, int _topY, int _x, char _sym)
+        public VerticalLine(int _topY, int _bottomY, int _x, char _sym)
         {
             points = new List<Point>();
 
-            for (int y = _bottomY; y >= _topY; y--)
+            for (int y = _topY; y <= _bottomY; y++)
             {
                 points.Add(new Point(_x, y, _sym));
             }
